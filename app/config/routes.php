@@ -50,3 +50,12 @@ $router->get('/student/profile', 'StudentController::profile')->middleware('stud
 
 
 $router->get('/users', 'UsersController::index');
+
+$router->get('/api/products', 'ProductController::index');
+$router->get('/api/products/{id}', 'ProductController::show')->where_number('id');
+$router->post('/api/products', 'ProductController::store');
+$router->put('/api/products/{id}', 'ProductController::update')->where_number('id');
+$router->delete('/api/products/{id}', 'ProductController::delete')->where_number('id');
+
+$router->post('/api/login', 'AuthController::login');
+$router->post('/api/logout', 'AuthController::logout');
