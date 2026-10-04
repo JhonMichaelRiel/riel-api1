@@ -63,3 +63,17 @@ $router->options('/api/login', 'AuthController::login');
 $router->post('/api/login', 'AuthController::login');
 $router->options('/api/logout', 'AuthController::logout');
 $router->post('/api/logout', 'AuthController::logout');
+
+
+
+
+
+
+
+// Migration Routes
+$router->get('create-migration/{migration_class}', 'MigrationController::create_migration');
+$router->get('migrate', 'MigrationController::migrate');
+$router->get('rollback', 'MigrationController::rollback');
+$router->get('rollback-all', 'MigrationController::rollback_all');
+$router->get('refresh', 'MigrationController::refresh');
+$router->get('status', 'MigrationController::status');
