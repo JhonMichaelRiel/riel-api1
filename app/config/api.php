@@ -44,7 +44,7 @@ defined('PREVENT_DIRECT_ACCESS') OR exit('No direct script access allowed');
 | and disable it back when you're done.
 |
 */
-$config['api_helper_enabled'] = TRUE;
+$config['api_helper_enabled'] = true;
 
 /*
 |--------------------------------------------------------------------------
@@ -96,7 +96,7 @@ $config['refresh_token_key'] = getenv('REFRESH_TOKEN_KEY') ?: '';
 | already deployed.
 |
 */
-$config['allow_origin'] = '*';
+$config['allow_origin'] = 'http://localhost:5173/';
 
 /*
 |--------------------------------------------------------------------------

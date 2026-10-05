@@ -165,7 +165,7 @@ $database['main'] = array(
     'driver'	=> '',
     'hostname'	=> getenv('DB_HOST') ?: '',
     'port'		=> getenv('DB_PORT') ?: '',
-    'username'	=> getenv('DB_USERNAME') ?: '',
+    'username'	=> getenv('DB_USER') ?: '',
     'password'	=> getenv('DB_PASSWORD') ?: '',
     'database'	=> getenv('DB_NAME') ?: '',
     'charset'	=> '',
@@ -174,6 +174,30 @@ $database['main'] = array(
     'path'      => ''
 );
 ```
+
+### Local WAMP Database
+
+The backend `.env` is configured for the local WAMP MySQL server:
+
+```env
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_NAME=defaultdb
+DB_USER=root
+DB_PASSWORD=
+```
+
+If your WAMP `root` account has a password or uses a different port, update
+`DB_PASSWORD` or `DB_PORT` to match your installation. The `defaultdb` database
+contains the `migrations`, `users`, `refresh_tokens`, and `products` tables.
+
+The frontend's sign-up form creates regular user accounts through
+`POST /api/signup`. New accounts can then sign in from the product management
+page.
+
+To apply future migrations, temporarily set `migration_enabled` to `TRUE` in
+`app/config/migration.php`, run `php lava migration run`, then set it back to
+`FALSE`.
 
 ### Base URL
 

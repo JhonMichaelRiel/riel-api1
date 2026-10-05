@@ -42,6 +42,43 @@ class AuthController extends Controller {
         ]);
     }
 
+    public function signup(){
+        $body = $this->api->body();
+        $username = $body['username'] ?? '';
+        $email = $body['email'] ?? '';
+        $password = $body['password'] ?? '';
+
+        if (!is_string($username) || !is_string($email) || !is_string($password)
+            || $username === '' || strlen($username) > 100
+            || !filter_var($email, FILTER_VALIDATE_EMAIL) || strlen($email) > 191
+            || strlen($password) < 8) {
+            return $this->api->respond_error(
+                'Enter a username, a valid email, and a password with at least 8 characters.',
+                422
+            );
+        }
+
+        if ($this->UserModel->findByLogin($email)
+            || $this->UserModel->findByLogin($username)) {
+            return $this->api->respond_error(
+                'That email or username is already in use.',
+                409
+            );
+        }
+
+        $this->UserModel->_query()->insert([
+            'username' => $username,
+            'email' => $email,
+            'password' => password_hash($password, PASSWORD_DEFAULT),
+            'role' => 'user',
+            'is_active' => 1,
+        ]);
+
+        return $this->api->respond([
+            'message' => 'Account created. You can now sign in.',
+        ], 201);
+    }
+
     public function logout(){
         $body = $this->api->body();
         $refresh_token = $body['refresh_token'] ?? '';

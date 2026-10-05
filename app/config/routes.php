@@ -61,6 +61,8 @@ $router->delete('/api/products/{id}', 'ProductController::delete')->where_number
 
 $router->options('/api/login', 'AuthController::login');
 $router->post('/api/login', 'AuthController::login');
+$router->options('/api/signup', 'AuthController::signup');
+$router->post('/api/signup', 'AuthController::signup');
 $router->options('/api/logout', 'AuthController::logout');
 $router->post('/api/logout', 'AuthController::logout');
 
