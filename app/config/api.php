@@ -96,7 +96,7 @@ $config['refresh_token_key'] = getenv('REFRESH_TOKEN_KEY') ?: '';
 | already deployed.
 |
 */
-$config['allow_origin'] = 'https://riel-ui2.vercel.app/';
+$config['allow_origin'] = 'https://riel-ui2.vercel.app';
 
 /*
 |--------------------------------------------------------------------------
