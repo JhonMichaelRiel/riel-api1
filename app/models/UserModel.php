@@ -26,4 +26,10 @@ class UserModel extends Model {
     public function findByEmail($email){
         return $this->db->table('users')->where('email', $email)->get();
     }
+    public function findByLogin($login){
+        return $this->db->table('users')
+            ->where('email', $login)
+            ->or_where('username', $login)
+            ->get();
+    }
 }

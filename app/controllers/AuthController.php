@@ -17,9 +17,9 @@ class AuthController extends Controller {
 
     public function login(){
         $body = $this->api->body();
-        $email = $body['email'] ?? '';
+        $login = $body['email'] ?? $body['username'] ?? '';
         $password = $body['password'] ?? '';
-        $user = $this->UserModel->findByEmail($email);
+        $user = $login !== '' ? $this->UserModel->findByLogin($login) : null;
         if (!$user || !password_verify($password, $user['password'])){
             return $this->api->respond_error('Invalid email or password', 401);
         }

@@ -64,3 +64,5 @@ class Migration
         passthru($command);
     }
 }
+
+//php -r "echo bin2hex(random_bytes(32));"
