@@ -195,6 +195,20 @@ The frontend's sign-up form creates regular user accounts through
 `POST /api/signup`. New accounts can then sign in from the product management
 page.
 
+### Product management frontend
+
+The backend root (`/`) opens the React product CRUD app at `/crud/`. Build the
+frontend before opening the app so its static files are available to the
+backend:
+
+```bash
+npm --prefix frontend run build
+```
+
+The frontend uses the same origin for API requests by default. Set
+`VITE_API_URL` in the frontend environment only when the API is hosted on a
+different origin.
+
 To apply future migrations, temporarily set `migration_enabled` to `TRUE` in
 `app/config/migration.php`, run `php lava migration run`, then set it back to
 `FALSE`.

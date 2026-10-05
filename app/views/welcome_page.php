@@ -582,7 +582,6 @@ defined('PREVENT_DIRECT_ACCESS') OR exit('No direct script access allowed');
     <div class="nav-links">
         <a href="https://lavalust.netlify.app/docs/" target="_blank">Docs</a>
         <a href="https://github.com/ronmarasigan/LavaLust" target="_blank">GitHub</a>
-        <a href="/student" class="btn-nav btn-student">Student Page →</a>
         <a href="https://lavalust.netlify.app/docs/" target="_blank" class="btn-nav">Get Started →</a>
     </div>
 </nav>
@@ -591,8 +590,8 @@ defined('PREVENT_DIRECT_ACCESS') OR exit('No direct script access allowed');
 <div class="hero wrap">
     <div class="badge">v<?php echo config_item('VERSION') ?? '4.x'; ?> — Now Available</div>
     <h1>
-        <span class="word-lava">Super Magbanua</span><br>
-        <span class="word-lust">LavaLust Framework</span>
+        <span class="word-lava">LavaLust</span><br>
+        <span class="word-lust">Framework</span>
     </h1>
     <p class="hero-sub">
         A lightweight, expressive PHP MVC framework built for developers who want structure without the bloat.
