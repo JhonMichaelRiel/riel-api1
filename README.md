@@ -209,6 +209,13 @@ The frontend uses the same origin for API requests by default. Set
 `VITE_API_URL` in the frontend environment only when the API is hosted on a
 different origin.
 
+### Vercel frontend with Render API
+
+When deploying the frontend to Vercel and the PHP API to Render, include the
+repository's `vercel.json` rewrite in the Vercel project root. It forwards
+`/api/*` requests to `https://riel-api1-1.onrender.com/api/*`, so the frontend
+can continue using same-origin API paths.
+
 To apply future migrations, temporarily set `migration_enabled` to `TRUE` in
 `app/config/migration.php`, run `php lava migration run`, then set it back to
 `FALSE`.
